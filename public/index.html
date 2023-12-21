@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Website Example</title>
-    <style>
-        /* CSS styles for the website */
-        /* ... */
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autosewa</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <header>
@@ -16,24 +15,61 @@
                 <a href="/public/index.html"><img src="images/logo.png" alt="logo"></a>
             </div>
             <div class="contactContainer">
-                <ul>
-                    <li><a href="tel:1234567890">123-456-7890</a></li> | 
-                    <li><a href="mailto:info.autosewa.com">info.autosewa.com</a></li>
+                <ul class="contactList">
+                    <li><a href="about.html">About Us</a><span> |</span></li>
+                    <li><a href="FAQ.html">FAQs</a><span> |</span></li>
+                    <li><a href="contact.html">Contact </a></li>
                 </ul>
             </div>
         </nav>
         <div class="banner">
-            <!-- Big banner content -->
+            <h1>Get the nearest auto-driver <br> to pick you in minutes</h1>
+            <br>
+            <br>
+            <h3>Free of service charge <p>Book any kind of rides</p></h3>
         </div>
         <div class="content">
             <!-- Div with white background in the middle of the header section -->
+            <div class="details">
+                <h2>How It Works</h2>
+                <div class="infoContainer">
+                    <div class="info1">
+                        <div class="info-topic">
+                            <img src="images/1.png" alt="1"><p>Select your city/town</p>
+                        </div>
+                        <img src="images/location.png" alt="User Location">
+                        <p>Choose from a <span style="color: rgb(30, 229, 255);">wide range of cities</span> in Nepal</p>
+                    </div>
+                    <div class="info1">
+                        <div class="info-topic">
+                            <img src="images/2.png" alt="2"><p>Choose your auto-rider</p>
+                        </div>
+                        <img src="images/choose.png" alt="Rider Selection">
+                        <p>Then pick your favorite from <span style="color: rgb(30, 229, 255);">list of auto-riders</span></p>
+                    </div>
+                    <div class="info1">
+                        <div class="info-topic">
+                            <img src="images/3.png" alt="3"><p>Call the auto-rider</p>
+                        </div>
+                        <img src="images/call.png" alt="Call Rider">
+                        <p>Discuss your pricing and details to get ride</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </header>
+
+    <br>
+    <br>
+    <br>
     
-    <main>
-        <button>Search</button>
+    <main class="container">
         <section>
-            <!-- How this website works section -->
+            <!-- Search functionality section -->
+            <div class="search-container">
+                <input type="text" placeholder="Search..." class="search-input">
+                <button class="search-button">Search</button>
+            </div>
         </section>
         <section>
             <!-- List of all 7 demo customers nicely arranged -->
