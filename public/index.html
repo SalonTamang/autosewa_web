@@ -16,16 +16,19 @@
             </div>
             <div class="contactContainer">
                 <ul class="contactList">
-                    <li><a href="about.html">About Us</a><span> |</span></li>
-                    <li><a href="FAQ.html">FAQs</a><span> |</span></li>
-                    <li><a href="contact.html">Contact </a></li>
+                    <li class="nav-link"><a href="#">About Us</a><span> |</span></li>
+                    <li class="nav-link"><a href="#">FAQs</a><span> |</span></li>
+                    <li class="nav-link"><a href="#">Contact </a></li>
                 </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
             </div>
         </nav>
         <div class="banner">
             <h1>Get the nearest auto-driver <br> to pick you in minutes</h1>
-            <br>
-            <br>
             <h3>Free of service charge <p>Book any kind of rides</p></h3>
         </div>
         <div class="content">
@@ -61,27 +64,182 @@
         </div>
     </header>
 
-    <br>
-    <br>
-    <br>
-    
     <main class="container">
+        <section class="mainHeader">
+            <center><h1>Pick your auto-driver</h1></center>
+        </section>
         <section>
             <!-- Search functionality section -->
             <div class="search-container">
-                <input type="text" placeholder="Search..." class="search-input">
-                <button class="search-button">Search</button>
+                <input type="text" placeholder="Search auto-drivers..." class="search-input">
+                <div class="search-function">
+                   <select class="search-select">
+                        <option value="all">All</option>
+                        <option value="hetauda">Hetauda</option>
+                        <option value="kathmandu">Kathmandu</option>
+                        <option value="pokhara">Pokhara</option>
+                        <option value="biratnagar">Biratnagar</option>
+                        <option value="dharan">Dharan</option>
+                        <option value="birgunj">Birgunj</option>
+                        <option value="itahari">Itahari</option>
+                    </select>
+                    <button class="search-button">Search</button> 
+                </div>    
             </div>
         </section>
-        <section>
+        <section class="driverList">
+            <div class="driver">
+                <div class="driver-image">
+                    <img src="images/1.png" alt="1">
+                </div>
+                <div class="driver-info">
+                    <h3>Driver Name</h3>
+                    <p>View info</p>
+                </div>
+            </div>
+            <div class="driver">
+                <div class="driver-image">
+                    <img src="images/1.png" alt="1">
+                </div>
+                <div class="driver-info">
+                    <h3>Driver Name</h3>
+                    <p>View info</p>
+                </div>
+            </div>
+            <div class="driver">
+                <div class="driver-image">
+                    <img src="images/1.png" alt="1">
+                </div>
+                <div class="driver-info">
+                    <h3>Driver Name</h3>
+                    <p>View info</p>
+                </div>
+            </div>
+            <div class="driver">
+                <div class="driver-image">
+                    <img src="images/1.png" alt="1">
+                </div>
+                <div class="driver-info">
+                    <h3>Driver Name</h3>
+                    <p>View info</p>
+                </div>
+            </div>
+            <div class="driver">
+                <div class="driver-image">
+                    <img src="images/1.png" alt="1">
+                </div>
+                <div class="driver-info">
+                    <h3>Driver Name</h3>
+                    <p>View info</p>
+                </div>
+            </div>
+            <div class="driver">
+                <div class="driver-image">
+                    <img src="images/1.png" alt="1">
+                </div>
+                <div class="driver-info">
+                    <h3>Driver Name</h3>
+                    <p>View info</p>
+                </div>
+            </div>
+            <div class="driver">
+                <div class="driver-image">
+                    <img src="images/1.png" alt="1">
+                </div>
+                <div class="driver-info">
+                    <h3>Driver Name</h3>
+                    <p>View info</p>
+                </div>
+            </div>
+            <div class="driver">
+                <div class="driver-image">
+                    <img src="images/1.png" alt="1">
+                </div>
+                <div class="driver-info">
+                    <h3>Driver Name</h3>
+                    <p>View info</p>
+                </div>
+            </div>
+            <div class="driver">
+                <div class="driver-image">
+                    <img src="images/1.png" alt="1">
+                </div>
+                <div class="driver-info">
+                    <h3>Driver Name</h3>
+                    <p>View info</p>
+                </div>
+            </div>
+            <div class="driver">
+                <div class="driver-image">
+                    <img src="images/1.png" alt="1">
+                </div>
+                <div class="driver-info">
+                    <h3>Driver Name</h3>
+                    <p>View info</p>
+                </div>
+            </div>
+            <div class="driver">
+                <div class="driver-image">
+                    <img src="images/1.png" alt="1">
+                </div>
+                <div class="driver-info">
+                    <h3>Driver Name</h3>
+                    <p>View info</p>
+                </div>
+            </div>
             <!-- List of all 7 demo customers nicely arranged -->
         </section>
     </main>
     
     <footer>
         <section>
-            <!-- Contact info -->
+            <!-- Footer section -->
+            <p>This is the footer section of the page</p>
         </section>
     </footer>
+    <!-- Go To Top button -->
+    <button onclick="topFunction()" id="goToTop" title="Go to top"><img src="images/up.png" height="15" width="15" alt="up"></button>
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.contactList');
+        const links = document.querySelectorAll('.contactList li');
+
+
+        hamburger.addEventListener("click", mobileMenu);
+
+        function mobileMenu() {
+            hamburger.classList.toggle("active");
+            navLinks.classList.toggle("active");
+        }
+        const navLink = document.querySelectorAll(".nav-link");
+
+        navLink.forEach(n => n.addEventListener("click", closeMenu));
+
+        function closeMenu() {
+            hamburger.classList.remove("active");
+            navLinks.classList.remove("active");
+        }
+
+        // Get the button
+        let goToTop = document.getElementById("goToTop");
+
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {scrollFunction()};
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                goToTop.style.display = "block";
+            } else {
+                goToTop.style.display = "none";
+            }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
 </body>
+
 </html>
