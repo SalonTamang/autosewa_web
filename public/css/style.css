@@ -6,7 +6,7 @@ body {
     margin: 0 20px;
     padding: 0;
     background-color: #f0f0f0;
-    border-box: box-sizing;
+    box-sizing: border-box;
 }
 
 header {
@@ -21,7 +21,7 @@ nav {
     flex-wrap: nowrap;
     background-color: white;
     color: black;
-    padding: 10px 10px 0 10px;
+    padding: 5px 10px 0px 10px;
     position: relative;
 }
 
@@ -37,6 +37,7 @@ nav>.logoContainer {
 }
 
 nav ul {
+    padding-top: 5px;
     flex: 1;
     text-align: right;
     list-style-type: none;
@@ -79,6 +80,7 @@ nav ul li a:hover {
 
 /* for hamburger menu */
 .hamburger {
+    padding-top: 10px;
     display: none;
 }
 
@@ -504,9 +506,8 @@ a{
         padding-top: 80px;
         height: 400px;
     }
-
-    .banner h3 {
-        margin-top: 90px;
+    .banner h3{
+        margin-top: 50px;
     }
 
     .content {
@@ -718,11 +719,13 @@ a{
     }
 
     .content {
+        width: 600px;
+        height: 450px;
         position: absolute;
-        bottom: 0%;
+        top: 40%;
         left: 50%;
         transform: translateX(-50%);
-        margin-bottom: 20px;
+      
     }
 
     .infoContainer {

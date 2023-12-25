@@ -13,7 +13,13 @@
         <div class="logoContainer">
           <!-- Logo -->
           <a href="/public/index.html"
-            ><img src="images/logo.png" alt="logo"
+            ><img
+              style="height:100%; width:80px"
+              height="50"
+              width="50"
+              style="object-fit: contain"
+              src="images/logo.jpg"
+              alt="logo"
           /></a>
         </div>
         <div class="contactContainer">
@@ -93,21 +99,21 @@
       <section>
         <!-- Search functionality section -->
         <div class="search-container">
-          <!-- <input type="text" placeholder="Search pick-up address" class="search-input"> -->
+          <input
+            type="text"
+            placeholder="Select pickup location"
+            class="search-input"
+          />
           <div class="search-function">
             <select class="search-select">
-              <option value="all">Choose palces in Hetauda</option>
-              <option value="Buddha Chowk">Buddha Chowk</option>
-              <option value="Mayurdhaap">Mayurdhaap</option>
-              <option value="Padampokhari">Padampokhari</option>
-              <option value="Chaughada">Chaughada</option>
-              <option value="Kamane">Kamane</option>
-              <option value="Dakshinkali Temple">Dakshinkali Temple</option>
-              <option value="Puspalal Park">Puspalal Park</option>
-              <option value="Manakamana Temple">Manakamana Temple</option>
-              <option value="Sadhana Bhumi Himalaya">
-                Sadhana Bhumi Himalaya
-              </option>
+              <option value="all">All</option>
+              <option value="hetauda">Hetauda</option>
+              <option value="kathmandu">Kathmandu</option>
+              <option value="pokhara">Pokhara</option>
+              <option value="biratnagar">Biratnagar</option>
+              <option value="dharan">Dharan</option>
+              <option value="birgunj">Birgunj</option>
+              <option value="itahari">Itahari</option>
             </select>
             <button class="search-button">Search</button>
           </div>
@@ -132,7 +138,78 @@
             <p>View info</p>
           </div>
         </div>
-
+        <div class="driver">
+          <div class="driver-image">
+            <img src="images/1.png" alt="1" />
+          </div>
+          <div class="driver-info">
+            <h3>Driver Name</h3>
+            <p>View info</p>
+          </div>
+        </div>
+        <div class="driver">
+          <div class="driver-image">
+            <img src="images/1.png" alt="1" />
+          </div>
+          <div class="driver-info">
+            <h3>Driver Name</h3>
+            <p>View info</p>
+          </div>
+        </div>
+        <div class="driver">
+          <div class="driver-image">
+            <img src="images/1.png" alt="1" />
+          </div>
+          <div class="driver-info">
+            <h3>Driver Name</h3>
+            <p>View info</p>
+          </div>
+        </div>
+        <div class="driver">
+          <div class="driver-image">
+            <img src="images/1.png" alt="1" />
+          </div>
+          <div class="driver-info">
+            <h3>Driver Name</h3>
+            <p>View info</p>
+          </div>
+        </div>
+        <div class="driver">
+          <div class="driver-image">
+            <img src="images/1.png" alt="1" />
+          </div>
+          <div class="driver-info">
+            <h3>Driver Name</h3>
+            <p>View info</p>
+          </div>
+        </div>
+        <div class="driver">
+          <div class="driver-image">
+            <img src="images/1.png" alt="1" />
+          </div>
+          <div class="driver-info">
+            <h3>Driver Name</h3>
+            <p>View info</p>
+          </div>
+        </div>
+        <div class="driver">
+          <div class="driver-image">
+            <img src="images/1.png" alt="1" />
+          </div>
+          <div class="driver-info">
+            <h3>Driver Name</h3>
+            <p>View info</p>
+          </div>
+        </div>
+        <div class="driver">
+          <div class="driver-image">
+            <img src="images/1.png" alt="1" />
+          </div>
+          <div class="driver-info">
+            <h3>Driver Name</h3>
+            <p>View info</p>
+          </div>
+        </div>
         <div class="driver">
           <div class="driver-image">
             <img src="images/1.png" alt="1" />
@@ -188,22 +265,28 @@
           </div>
           <div class="second-section">
             <div class="second-inner">
-
-                <h3>Get the latest updates</h3>
-                <div style="margin: 7px 0px">
-                    <input type="email" placeholder="Enter your email address" />
-                    <button>Subscribe</button>
-                </div>
-                <div>
-                    <input type="checkbox" />
-                    <label
-                    >By checking the box, you agree to the terms and
-                    conditions</label
-                    >
-                </div>
+              <h3>Get the latest updates</h3>
+              <div style="margin: 7px 0px">
+                <input type="email" placeholder="Enter your email address" />
+                <button>Subscribe</button>
+              </div>
+              <div>
+                <input type="checkbox" />
+                <label
+                  >By checking the box, you agree to the terms and
+                  conditions</label
+                >
+              </div>
             </div>
-                <div style="width: 50px; height: 100%; display: flex; justify-content: center;">
-                    <!-- Go To Top button -->
+            <div
+              style="
+                width: 50px;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+              "
+            >
+              <!-- Go To Top button -->
               <button onclick="topFunction()" id="goToTop" title="Go to top">
                 <img src="images/up.png" height="15" width="15" alt="up" />
               </button>

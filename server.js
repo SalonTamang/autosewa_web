@@ -102,7 +102,8 @@ const dummyData = [
       "phoneNumber": "3333333333"
     }
 ]
+
 // Path: public/login.html
 app.get("/getData", (req,res)=>{
-    res.json(dummyData)
+    res.send(dummyData)
 })
