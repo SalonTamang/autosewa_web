@@ -1,245 +1,262 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Autosewa</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
     <header>
-        <nav>
-            <!-- Navigation menu -->
-            <div class="logoContainer">
-                <!-- Logo -->
-                <a href="/public/index.html"><img src="images/logo.png" alt="logo"></a>
-            </div>
-            <div class="contactContainer">
-                <ul class="contactList">
-                    <li class="nav-link"><a href="#">About Us</a><span> |</span></li>
-                    <li class="nav-link"><a href="#">FAQs</a><span> |</span></li>
-                    <li class="nav-link"><a href="#">Contact </a></li>
-                </ul>
-                <div class="hamburger">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </div>
-            </div>
-        </nav>
-        <div class="banner">
-            <h1>Get the nearest auto-driver <br> to pick you in minutes</h1>
-            <h3>Free of service charge <p>Book any kind of rides</p></h3>
+      <nav>
+        <!-- Navigation menu -->
+        <div class="logoContainer">
+          <!-- Logo -->
+          <a href="/public/index.html"
+            ><img src="images/logo.png" alt="logo"
+          /></a>
         </div>
-        <div class="content">
-            <!-- Div with white background in the middle of the header section -->
-            <!-- section for details -->
-            <div class="details">
-                <h2>How It Works</h2>
-                <div class="infoContainer">
-                    <div class="info1">
-                        <div class="info-topic">
-                            <img src="images/1.png" alt="1"><p>Select your city/town</p>
-                        </div>
-                        <img src="images/location.png" alt="User Location">
-                        <p>Choose from a <span style="color: rgb(30, 229, 255);">wide range of cities</span> in Nepal</p>
-                    </div>
-                    <div class="info1">
-                        <div class="info-topic">
-                            <img src="images/2.png" alt="2"><p>Choose your auto-rider</p>
-                        </div>
-                        <img src="images/choose.png" alt="Rider Selection">
-                        <p>Then pick your favorite from <span style="color: rgb(30, 229, 255);">list of auto-riders</span></p>
-                    </div>
-                    <div class="info1">
-                        <div class="info-topic">
-                            <img src="images/3.png" alt="3"><p>Call the auto-rider</p>
-                        </div>
-                        <img src="images/call.png" alt="Call Rider">
-                        <p>Discuss your pricing and details to get ride</p>
-                        <div></div>
-                    </div>
-                </div>
-            </div>
+        <div class="contactContainer">
+          <ul class="contactList">
+            <li class="nav-link"><a href="#">About Us</a><span> |</span></li>
+            <li class="nav-link"><a href="#">FAQs</a><span> |</span></li>
+            <li class="nav-link"><a href="#">Contact </a></li>
+          </ul>
+          <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </div>
         </div>
+      </nav>
+      <div class="banner">
+        <h1>
+          Get the nearest auto-driver <br />
+          to pick you in minutes
+        </h1>
+        <h3>
+          Free of service charge
+          <p>Book any kind of rides</p>
+        </h3>
+      </div>
+      <div class="content">
+        <!-- Div with white background in the middle of the header section -->
+        <!-- section for details -->
+        <div class="details">
+          <h2>How It Works</h2>
+          <div class="infoContainer">
+            <div class="info1">
+              <div class="info-topic">
+                <img src="images/1.png" alt="1" />
+                <p>Select your city/town</p>
+              </div>
+              <img src="images/location.png" alt="User Location" />
+              <p>
+                Choose from a
+                <span style="color: rgb(30, 229, 255)"
+                  >wide range of cities</span
+                >
+                in Nepal
+              </p>
+            </div>
+            <div class="info1">
+              <div class="info-topic">
+                <img src="images/2.png" alt="2" />
+                <p>Choose your auto-rider</p>
+              </div>
+              <img src="images/choose.png" alt="Rider Selection" />
+              <p>
+                Then pick your favorite from
+                <span style="color: rgb(30, 229, 255)"
+                  >list of auto-riders</span
+                >
+              </p>
+            </div>
+            <div class="info1">
+              <div class="info-topic">
+                <img src="images/3.png" alt="3" />
+                <p>Call the auto-rider</p>
+              </div>
+              <img src="images/call.png" alt="Call Rider" />
+              <p>Discuss your pricing and details to get ride</p>
+              <div></div>
+            </div>
+          </div>
+        </div>
+      </div>
     </header>
 
     <main class="container">
-        <section class="mainHeader">
-            <center><h1>Pick your auto-driver</h1></center>
-        </section>
-        <section>
-            <!-- Search functionality section -->
-            <div class="search-container">
-                <input type="text" placeholder="Search auto-drivers..." class="search-input">
-                <div class="search-function">
-                   <select class="search-select">
-                        <option value="all">All</option>
-                        <option value="hetauda">Hetauda</option>
-                        <option value="kathmandu">Kathmandu</option>
-                        <option value="pokhara">Pokhara</option>
-                        <option value="biratnagar">Biratnagar</option>
-                        <option value="dharan">Dharan</option>
-                        <option value="birgunj">Birgunj</option>
-                        <option value="itahari">Itahari</option>
-                    </select>
-                    <button class="search-button">Search</button> 
-                </div>    
-            </div>
-        </section>
-        <section class="driverList">
-            <div class="driver">
-                <div class="driver-image">
-                    <img src="images/1.png" alt="1">
-                </div>
-                <div class="driver-info">
-                    <h3>Driver Name</h3>
-                    <p>View info</p>
-                </div>
-            </div>
-            <div class="driver">
-                <div class="driver-image">
-                    <img src="images/1.png" alt="1">
-                </div>
-                <div class="driver-info">
-                    <h3>Driver Name</h3>
-                    <p>View info</p>
-                </div>
-            </div>
-            <div class="driver">
-                <div class="driver-image">
-                    <img src="images/1.png" alt="1">
-                </div>
-                <div class="driver-info">
-                    <h3>Driver Name</h3>
-                    <p>View info</p>
-                </div>
-            </div>
-            <div class="driver">
-                <div class="driver-image">
-                    <img src="images/1.png" alt="1">
-                </div>
-                <div class="driver-info">
-                    <h3>Driver Name</h3>
-                    <p>View info</p>
-                </div>
-            </div>
-            <div class="driver">
-                <div class="driver-image">
-                    <img src="images/1.png" alt="1">
-                </div>
-                <div class="driver-info">
-                    <h3>Driver Name</h3>
-                    <p>View info</p>
-                </div>
-            </div>
-            <div class="driver">
-                <div class="driver-image">
-                    <img src="images/1.png" alt="1">
-                </div>
-                <div class="driver-info">
-                    <h3>Driver Name</h3>
-                    <p>View info</p>
-                </div>
-            </div>
-            <div class="driver">
-                <div class="driver-image">
-                    <img src="images/1.png" alt="1">
-                </div>
-                <div class="driver-info">
-                    <h3>Driver Name</h3>
-                    <p>View info</p>
-                </div>
-            </div>
-            <div class="driver">
-                <div class="driver-image">
-                    <img src="images/1.png" alt="1">
-                </div>
-                <div class="driver-info">
-                    <h3>Driver Name</h3>
-                    <p>View info</p>
-                </div>
-            </div>
-            <div class="driver">
-                <div class="driver-image">
-                    <img src="images/1.png" alt="1">
-                </div>
-                <div class="driver-info">
-                    <h3>Driver Name</h3>
-                    <p>View info</p>
-                </div>
-            </div>
-            <div class="driver">
-                <div class="driver-image">
-                    <img src="images/1.png" alt="1">
-                </div>
-                <div class="driver-info">
-                    <h3>Driver Name</h3>
-                    <p>View info</p>
-                </div>
-            </div>
-            <div class="driver">
-                <div class="driver-image">
-                    <img src="images/1.png" alt="1">
-                </div>
-                <div class="driver-info">
-                    <h3>Driver Name</h3>
-                    <p>View info</p>
-                </div>
-            </div>
-            <!-- List of all 7 demo customers nicely arranged -->
-        </section>
+      <section class="mainHeader">
+        <center><h1>Pick your auto-driver</h1></center>
+      </section>
+      <section>
+        <!-- Search functionality section -->
+        <div class="search-container">
+          <!-- <input type="text" placeholder="Search pick-up address" class="search-input"> -->
+          <div class="search-function">
+            <select class="search-select">
+              <option value="all">Choose palces in Hetauda</option>
+              <option value="Buddha Chowk">Buddha Chowk</option>
+              <option value="Mayurdhaap">Mayurdhaap</option>
+              <option value="Padampokhari">Padampokhari</option>
+              <option value="Chaughada">Chaughada</option>
+              <option value="Kamane">Kamane</option>
+              <option value="Dakshinkali Temple">Dakshinkali Temple</option>
+              <option value="Puspalal Park">Puspalal Park</option>
+              <option value="Manakamana Temple">Manakamana Temple</option>
+              <option value="Sadhana Bhumi Himalaya">
+                Sadhana Bhumi Himalaya
+              </option>
+            </select>
+            <button class="search-button">Search</button>
+          </div>
+        </div>
+      </section>
+      <section class="driverList">
+        <div class="driver">
+          <div class="driver-image">
+            <img src="images/1.png" alt="1" />
+          </div>
+          <div class="driver-info">
+            <h3>Driver Name</h3>
+            <p>View info</p>
+          </div>
+        </div>
+        <div class="driver">
+          <div class="driver-image">
+            <img src="images/1.png" alt="1" />
+          </div>
+          <div class="driver-info">
+            <h3>Driver Name</h3>
+            <p>View info</p>
+          </div>
+        </div>
+
+        <div class="driver">
+          <div class="driver-image">
+            <img src="images/1.png" alt="1" />
+          </div>
+          <div class="driver-info">
+            <h3>Driver Name</h3>
+            <p>View info</p>
+          </div>
+        </div>
+        <!-- List of all 7 demo customers nicely arranged -->
+      </section>
     </main>
-    
+
     <footer>
-        <section>
-            <!-- Footer section -->
-            <p>This is the footer section of the page</p>
-        </section>
+      <section>
+        <div class="footer-main">
+          <div class="first-section">
+            <h3>autosewa</h3>
+            <div class="outer-first">
+              <div class="inner">
+                <a href="#">About Us</a>
+                <a href="#">FAQs</a>
+                <a href="#">Contact</a>
+                <a href=""></a>
+              </div>
+              <div class="inner">
+                <a href="#">Terms&conditions</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Cookie Policy</a>
+              </div>
+            </div>
+            <!-- This section is for the social media links -->
+            <div class="socialmedia-container">
+              <a href="#"
+                ><img
+                  style="width: 45px; height: 40px"
+                  src="https://th.bing.com/th/id/OIP.urCH_YGDAtkynJbQJ53JwAAAAA?rs=1&pid=ImgDetMain"
+                  alt="facebook"
+              /></a>
+              <a href="#"
+                ><img
+                  style="width: 45px; height: 40px"
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/2048px-Instagram_icon.png"
+                  alt="instagram"
+              /></a>
+              <a href="#"
+                ><img
+                  style="width: 45px; height: 40px; border-radius: 5px"
+                  src="https://cdn2.iconfinder.com/data/icons/metro-ui-dock/512/Twitter_NEW.png"
+                  alt="twitter"
+              /></a>
+            </div>
+          </div>
+          <div class="second-section">
+            <div class="second-inner">
+
+                <h3>Get the latest updates</h3>
+                <div style="margin: 7px 0px">
+                    <input type="email" placeholder="Enter your email address" />
+                    <button>Subscribe</button>
+                </div>
+                <div>
+                    <input type="checkbox" />
+                    <label
+                    >By checking the box, you agree to the terms and
+                    conditions</label
+                    >
+                </div>
+            </div>
+                <div style="width: 50px; height: 100%; display: flex; justify-content: center;">
+                    <!-- Go To Top button -->
+              <button onclick="topFunction()" id="goToTop" title="Go to top">
+                <img src="images/up.png" height="15" width="15" alt="up" />
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
     </footer>
-    <!-- Go To Top button -->
-    <button onclick="topFunction()" id="goToTop" title="Go to top"><img src="images/up.png" height="15" width="15" alt="up"></button>
+
     <script>
-        const hamburger = document.querySelector('.hamburger');
-        const navLinks = document.querySelector('.contactList');
-        const links = document.querySelectorAll('.contactList li');
+      const hamburger = document.querySelector(".hamburger");
+      const navLinks = document.querySelector(".contactList");
+      const links = document.querySelectorAll(".contactList li");
 
+      hamburger.addEventListener("click", mobileMenu);
 
-        hamburger.addEventListener("click", mobileMenu);
+      function mobileMenu() {
+        hamburger.classList.toggle("active");
+        navLinks.classList.toggle("active");
+      }
+      const navLink = document.querySelectorAll(".nav-link");
 
-        function mobileMenu() {
-            hamburger.classList.toggle("active");
-            navLinks.classList.toggle("active");
+      navLink.forEach((n) => n.addEventListener("click", closeMenu));
+
+      function closeMenu() {
+        hamburger.classList.remove("active");
+        navLinks.classList.remove("active");
+      }
+
+      // Get the button
+      let goToTop = document.getElementById("goToTop");
+
+      // When the user scrolls down 20px from the top of the document, show the button
+      window.onscroll = function () {
+        scrollFunction();
+      };
+
+      function scrollFunction() {
+        if (
+          document.body.scrollTop > 20 ||
+          document.documentElement.scrollTop > 20
+        ) {
+          goToTop.style.display = "block";
+        } else {
+          goToTop.style.display = "none";
         }
-        const navLink = document.querySelectorAll(".nav-link");
+      }
 
-        navLink.forEach(n => n.addEventListener("click", closeMenu));
-
-        function closeMenu() {
-            hamburger.classList.remove("active");
-            navLinks.classList.remove("active");
-        }
-
-        // Get the button
-        let goToTop = document.getElementById("goToTop");
-
-        // When the user scrolls down 20px from the top of the document, show the button
-        window.onscroll = function() {scrollFunction()};
-
-        function scrollFunction() {
-            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-                goToTop.style.display = "block";
-            } else {
-                goToTop.style.display = "none";
-            }
-        }
-
-        // When the user clicks on the button, scroll to the top of the document
-        function topFunction() {
-            document.body.scrollTop = 0;
-            document.documentElement.scrollTop = 0;
-        }
+      // When the user clicks on the button, scroll to the top of the document
+      function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+      }
     </script>
-</body>
-
+  </body>
 </html>
