@@ -506,9 +506,8 @@ a{
         padding-top: 80px;
         height: 400px;
     }
-
-    .banner h3 {
-        margin-top: 90px;
+    .banner h3{
+        margin-top: 50px;
     }
 
     .content {
@@ -720,11 +719,13 @@ a{
     }
 
     .content {
+        width: 600px;
+        height: 450px;
         position: absolute;
-        bottom: 0%;
+        top: 40%;
         left: 50%;
         transform: translateX(-50%);
-        margin-bottom: 20px;
+      
     }
 
     .infoContainer {
