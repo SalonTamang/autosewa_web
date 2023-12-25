@@ -20,7 +20,7 @@ nav {
     flex-wrap: nowrap;
     background-color: #ddd;
     color: black;
-    padding: 10px;
+    padding: 5px 10px 0px 10px;
     position: relative;
 }
 
@@ -30,6 +30,7 @@ nav > .logoContainer {
 }
 
 nav ul {
+    padding-top: 5px;
     flex: 1;
     text-align: right;
     list-style-type: none;
@@ -70,6 +71,7 @@ nav ul li a:hover {
 }
 /* for hamburger menu */
 .hamburger {
+    padding-top: 10px;
     display: none;
 }
 
@@ -389,7 +391,7 @@ footer {
         height: 400px;
     }
     .banner h3{
-        margin-top: 90px;
+        margin-top: 50px;
     }
     .content {
         position: relative;
