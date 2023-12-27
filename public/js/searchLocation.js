@@ -31,7 +31,6 @@ function searchRiders(){
 
                 drivers.innerHTML += "<div class='driver'><div class='driver-image'><img src='images/" + image + ".png' alt='dimg' /></div><div class='driver-info'><h3>" + firstName + " " + lastName + " </h3><p onclick='getDInfo(" + driverID + ")'>View info</p></div></div>";
             }
-
         }
     }
     var data = {};

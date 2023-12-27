@@ -223,6 +223,19 @@
     </footer>
 
     <script>
+
+    //  let allRiders = [];
+
+    //  function loadData(){
+    //     fetch("http://localhost:3000/getAllDrivers")
+    //     .then(data => data.json())
+    //     .then(data=> allRiders = data)
+    //   }
+
+    //   window.onload = loadData();
+
+    
+    
   
       const hamburger = document.querySelector(".hamburger");
       const navLinks = document.querySelector(".contactList");
@@ -271,14 +284,14 @@
       // Handling pagination
       function changePage(action){
 
-        // // Get the select element
-        // var selectElement = document.querySelector('.search-select');
-        // var searchData = selectElement.value || "all";
-        //retrieving the current page
-        const currentPageElem = document.getElementById("currentPage");
-        const page = parseInt(currentPageElem.innerHTML);
+        // Get the select element
+        var selectElement = document.querySelector('.search-select');
+        var searchData = selectElement.value || "all";
+        // retrieving the current page
+        var currentPageElem = document.getElementById("currentPage");
+        let page = parseInt(currentPageElem.innerHTML);
 
-        if(action === "Previous" & page === 1){
+        if(action === "Previous" && page === 1){
             return;
         }
 
@@ -290,7 +303,7 @@
         }
 
         currentPageElem.innerHTML = page;
-        // window.location.href = `http://localhost:3000/getDrivers?station=${searchData}&page=${currentPage}`
+        window.location.href = `http://localhost:3000/getDrivers?station=${searchData}&page=${page}`
       }
 
       //search the drivers based on location
@@ -320,9 +333,11 @@
           })
           .catch(error => console.error('Error:', error));
       }
+
       
       const search_button = document.querySelector(".search-button");
       search_button.addEventListener("click", searchDrivers);
+      
     </script>
   </body>
 </html>

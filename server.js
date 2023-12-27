@@ -59,6 +59,19 @@ app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
 
+app.get("/getAllDrivers", (req,res)=>{
+  let sql = "SELECT * FROM riders";
+  connection.query(sql, (err, result) =>{
+      if(err){
+          return res.status(500).send('{"message": false, "error": "' +
+          JSON.stringify(err) + '"}');
+      } else{
+          res.send(result);
+      }
+  });
+   
+});
+
 
 //register drivers based on their data
 app.post("/registerRider", (req,res)=> {
