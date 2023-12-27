@@ -21,17 +21,16 @@ nav {
     flex-wrap: nowrap;
     background-color: white;
     color: black;
-    padding: 5px 10px 0px 10px;
+    padding: 5px 10px;
     position: relative;
 }
 
 .contactContainer {
     display: flex;
-    align-items: center;
-    font-size: 1.2rem;
+    align-items: center; 
 }
 
-nav>.logoContainer {
+nav > .logoContainer {
     flex: 1;
     text-align: left;
 }
@@ -60,7 +59,7 @@ nav ul li a:hover {
 
 .banner {
     width: 100%;
-    height: 450px;
+    height: 350px;
     overflow: hidden;
     color: white;
     font-weight: 700;
@@ -80,7 +79,6 @@ nav ul li a:hover {
 
 /* for hamburger menu */
 .hamburger {
-    padding-top: 10px;
     display: none;
 }
 
@@ -133,27 +131,12 @@ nav ul li a:hover {
     object-fit: contain;
 }
 
-main {
-    margin-bottom: 20px;
-    min-height: 500px;
-}
-
-main.container {
-    margin-top: -20px
-}
-
-.mainHeader {
-    margin-bottom: 20px;
-
-}
-
 .mainHeader h1 {
     font-size: 22px;
 }
 
 .search-container {
     padding: 20px 0;
-    width: 50%;
     margin: 0 auto;
     border-radius: 5px;
     display: flex;
@@ -267,9 +250,10 @@ footer {
     justify-content: flex-start;
     row-gap: 5px;
 }
-a{
-    text-decoration: none;
+
+footer a{
     color: white;
+    text-decoration: none;
 }
 
 .inner{
@@ -336,7 +320,7 @@ a{
 
     .contactList {
         position: fixed;
-        top: 3.5rem;
+        top: 4rem;
         display: none;
         width: 40%;
         flex-direction: column;
@@ -393,6 +377,7 @@ a{
     }
 
     .banner h1 {
+        padding-top: 30px;
         font-size: 30px;
     }
 
@@ -403,10 +388,14 @@ a{
 
     .content {
         position: relative;
+        margin-top: -10px;
         bottom: 0%;
         left: 50%;
         transform: translateX(-50%);
-        margin-bottom: 20px;
+    }
+
+    main{
+        margin-top: -20px;
     }
 
     .infoContainer {
@@ -437,7 +426,6 @@ a{
 
     .details {
         background-color: #f0f0f0;
-        ;
     }
 
     .search-container {
@@ -478,7 +466,8 @@ a{
     }
 
     .driver {
-        width: 100%;
+        width: 90%;
+        margin:0px auto 10px auto;
     }
 
 }
@@ -504,18 +493,17 @@ a{
     .banner {
         margin: 10px 0;
         padding-top: 80px;
-        height: 400px;
     }
     .banner h3{
         margin-top: 50px;
     }
 
     .content {
+        padding: 0;
         position: relative;
         bottom: 0%;
         left: 50%;
         transform: translateX(-50%);
-        margin-bottom: 20px;
     }
 
     .infoContainer {
@@ -539,10 +527,14 @@ a{
         object-fit: contain;
     }
 
+    main{
+        margin-top:-25px;
+    }
+
     .search-container {
         display: flex;
         justify-content: center;
-        width: 100%;
+        width: 52%;
     }
 
     .search-input {
@@ -572,16 +564,11 @@ a{
         padding: 0px 2px;
     }
 
-    .banner {
-        height: 450px;
-    }
-
     .content {
         position: relative;
         bottom: 0%;
         left: 50%;
         transform: translateX(-50%);
-        margin-bottom: 20px;
     }
 
     .infoContainer {
@@ -641,16 +628,11 @@ a{
         padding: 0px 2px;
     }
 
-    .banner {
-        height: 450px;
-    }
-
     .content {
         position: relative;
         bottom: 0%;
         left: 50%;
         transform: translateX(-50%);
-        margin-bottom: 20px;
     }
 
     .infoContainer {
@@ -719,13 +701,15 @@ a{
     }
 
     .content {
-        width: 600px;
-        height: 450px;
+        padding-top: 90px;
         position: absolute;
         top: 40%;
         left: 50%;
-        transform: translateX(-50%);
-      
+        transform: translateX(-50%); 
+    }
+
+    main {
+        margin-top: 8rem;
     }
 
     .infoContainer {
