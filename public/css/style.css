@@ -534,7 +534,6 @@ footer a{
     .search-container {
         display: flex;
         justify-content: center;
-        width: 52%;
     }
 
     .search-input {

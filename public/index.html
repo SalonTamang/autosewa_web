@@ -113,36 +113,45 @@
           </div>
         </div>
       </section>
-      <section class="driverList">
-        <div class="driver">
-          <div class="driver-image">
-            <img src="images/1.png" alt="1" />
-          </div>
-          <div class="driver-info">
-            <h3>Driver Name</h3>
-            <p>View info</p>
-          </div>
-        </div>
-        <div class="driver">
-          <div class="driver-image">
-            <img src="images/1.png" alt="1" />
-          </div>
-          <div class="driver-info">
-            <h3>Driver Name</h3>
-            <p>View info</p>
-          </div>
-        </div>
+      <!-- Pagination section -->
+      <section class="pagination" style="margin:20px auto;width: 20%; font-size: 20px; height: 20px; display: flex;">
+           <button style="flex: 1;" onClick="changePage('Previous')">Previous</button>
+           <div style="flex: 1; text-align: center;" id="currentPage">1</div>
+           <button style="flex: 1;" onClick="changePage('Next')">Next</button>
+      </section>
 
-        <div class="driver">
-          <div class="driver-image">
-            <img src="images/1.png" alt="1" />
+      <section class="driverContainer">
+        <div class="driverList">
+          <div class="driver">
+            <div class="driver-image">
+              <img src="images/1.png" alt="1" />
+            </div>
+            <div class="driver-info">
+              <h3>Driver Name</h3>
+              <p>View info</p>
+            </div>
           </div>
-          <div class="driver-info">
-            <h3>Driver Name</h3>
-            <p>View info</p>
+          <div class="driver">
+            <div class="driver-image">
+              <img src="images/1.png" alt="1" />
+            </div>
+            <div class="driver-info">
+              <h3>Driver Name</h3>
+              <p>View info</p>
+            </div>
+          </div>
+
+          <div class="driver">
+            <div class="driver-image">
+              <img src="images/1.png" alt="1" />
+            </div>
+            <div class="driver-info">
+              <h3>Driver Name</h3>
+              <p>View info</p>
+            </div>
           </div>
         </div>
-        <!-- List of all 7 demo customers nicely arranged -->
+          <!-- List of all 7 demo customers nicely arranged -->
       </section>
     </main>
 
@@ -214,6 +223,7 @@
     </footer>
 
     <script>
+  
       const hamburger = document.querySelector(".hamburger");
       const navLinks = document.querySelector(".contactList");
       const links = document.querySelectorAll(".contactList li");
@@ -257,6 +267,62 @@
         document.body.scrollTop = 0;
         document.documentElement.scrollTop = 0;
       }
+
+      // Handling pagination
+      function changePage(action){
+
+        // // Get the select element
+        // var selectElement = document.querySelector('.search-select');
+        // var searchData = selectElement.value || "all";
+        //retrieving the current page
+        const currentPageElem = document.getElementById("currentPage");
+        const page = parseInt(currentPageElem.innerHTML);
+
+        if(action === "Previous" & page === 1){
+            return;
+        }
+
+        if(action === "Next"){
+           page = page + 1;
+        }
+        else if(action === "Previous"){
+          page = page - 1;
+        }
+
+        currentPageElem.innerHTML = page;
+        // window.location.href = `http://localhost:3000/getDrivers?station=${searchData}&page=${currentPage}`
+      }
+
+      //search the drivers based on location
+
+      
+
+      function searchDrivers() {
+        // Get the select element
+        var selectElement = document.querySelector('.search-select');
+        var searchData = selectElement.value;
+
+        fetch("http://localhost:3000/getDrivers?station=" + searchData)
+          .then(response => response.json())
+          .then(data => {
+            const driverList = document.querySelector(".driverList");
+            driverList.innerHTML = data.map(driver => `
+              <div class='driver'>
+                <div class='driver-image'>
+                  <img src="${driver.image}" alt='dimg' />
+                </div>
+                <div class='driver-info'>
+                  <h3>${driver.firstName} ${driver.lastName}</h3>
+                  <a href="localhost:3000?id=${driver.id}"><p>View info</p></a>
+                </div>
+              </div>
+            `).join('');
+          })
+          .catch(error => console.error('Error:', error));
+      }
+      
+      const search_button = document.querySelector(".search-button");
+      search_button.addEventListener("click", searchDrivers);
     </script>
   </body>
 </html>
