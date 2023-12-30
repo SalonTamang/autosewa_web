@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile | Autosewa</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/profile.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <!-- back -->
+    <div class="back-button">
+        <a href="index.html"><img src="images/back.png" alt="back"></a>
+    </div>
+    <div class="mainContainer">
+        <div class="profile">
+            <div class="profile-header">
+                <img src="images/logo.jpg" alt="Profile Image" class="profile-image">
+                <div>
+                    <h2 class="profile-name">John Doe</h2>
+                    <div class="status">
+                        <span class="status-dot"></span>
+                        <span class="status-text">Active</span>
+                    </div>
+                </div>
+                
+            </div>
+
+            <hr width="70%" style="margin: 20px auto;">
+            
+            <div class="profile-details">
+                <div class="profile-details-item">
+                    <h3>Auto Number</h3>
+                    <p>{{ auto_number }}</p>
+                </div>
+                
+                <div class="profile-details-item">
+                    <h3>Joined At</h3>
+                    <p>{{ joined_at }}</p>
+                </div>
+            </div>
+
+            <hr width="70%" style="margin: 20px auto;">
+            
+            <div class="profile-actions">
+                <button class="call-button">Call</button>
+                <button class="message-button">Message</button>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

@@ -112,7 +112,18 @@ app.post("/registerRider", (req,res)=> {
       }
     });
   }
+});
 
+app.get("/getSearch", (req,res)=>{
+  let sql = "SELECT * FROM riders WHERE id = '" + req.query.id + "'";
+  connection.query(sql, (err, result) =>{
+      if(err){
+          return res.status(500).send('{"message": false, "error": "' +
+          JSON.stringify(err) + '"}');
+      } else{
+          res.send(result);
+      }
+  });
 });
 
 
