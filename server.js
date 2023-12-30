@@ -26,6 +26,22 @@ app.get("/", function(req, res){
   res.sendFile(path.join(__dirname, "/public/index.html"));
 });
 
+//second page where the individual riders get displayed
+app.get("/getProfile",(req,res) =>{
+  let id = req.query.id;
+  sql = `SELECT * FROM riders 
+  where id = ${id};`
+
+  connection.query(sql, (err,result) => {
+    if(err){
+      return res.status(500).send('{"message": false, "error": "' +
+      JSON.stringify(err) + '"}');
+    }
+    res.send(result);
+  })
+})
+
+
 // response with limited number of rider, Pagination
 // search the driver in the particular station
 app.get("/getDrivers", (req,res)=>{
@@ -114,7 +130,7 @@ app.post("/registerRider", (req,res)=> {
   }
 });
 
-app.get("/getSearch", (req,res)=>{
+app.get("/getProfile", (req,res)=>{
   let sql = "SELECT * FROM riders WHERE id = '" + req.query.id + "'";
   connection.query(sql, (err, result) =>{
       if(err){

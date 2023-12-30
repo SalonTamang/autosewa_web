@@ -5,6 +5,10 @@
     margin:0 auto;
 }
 
+a{
+    text-decoration: none;
+}
+
 .back-button {
     padding: 20px;
     width: 30px;
@@ -81,7 +85,6 @@
     cursor: pointer;
     outline: none;
     flex: 1;
-    width: 50%;
 }
 
 .call-button {

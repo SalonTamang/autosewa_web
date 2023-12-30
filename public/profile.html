@@ -15,15 +15,18 @@
     <div class="back-button">
         <a href="index.html"><img src="images/back.png" alt="back"></a>
     </div>
-    <div class="mainContainer">
+    <div id="app" class="mainContainer">
         <div class="profile">
             <div class="profile-header">
-                <img src="images/logo.jpg" alt="Profile Image" class="profile-image">
+                <img :src="'images/' + info.image + '.jpg'" alt="Profile Image" class="profile-image">
                 <div>
-                    <h2 class="profile-name">John Doe</h2>
+                    <h2 class="profile-name">{{ info.firstName}} {{info.lastName}}</h2>
                     <div class="status">
-                        <span class="status-dot"></span>
-                        <span class="status-text">Active</span>
+                        <span class="status-dot" :style="{ backgroundColor: info.status === 'on' ? 'green' : 'red' }"></span>
+                        <span class="status-text">{{ info.status }}</span>
+                    </div>
+                    <div >
+                        <!-- Your content here -->
                     </div>
                 </div>
                 
@@ -34,23 +37,63 @@
             <div class="profile-details">
                 <div class="profile-details-item">
                     <h3>Auto Number</h3>
-                    <p>{{ auto_number }}</p>
+                    <p>{{ info.autoNumber }}</p>
+                </div>
+
+                <div class="profile-details-item">
+                    <h3>Current Station</h3>
+                    <p>{{ info.station }}</p>
                 </div>
                 
                 <div class="profile-details-item">
                     <h3>Joined At</h3>
-                    <p>{{ joined_at }}</p>
+                    <p>{{ joinedAt }}</p>
                 </div>
             </div>
 
             <hr width="70%" style="margin: 20px auto;">
-            
+
             <div class="profile-actions">
-                <button class="call-button">Call</button>
-                <button class="message-button">Message</button>
+                <a :href="'tel:' + info.phoneNumber" class="call-button">Call</a>
+                <a :href="'sms:' + info.phoneNumber" class="message-button">Message</a>
             </div>
         </div>
 
     </div>
+
+    <script>
+        var app = new Vue({
+            el: '#app',
+        
+            data: {
+                info:[],
+            },
+            methods: {
+                getProfileData() {
+                    var urlParams = new URLSearchParams(window.location.search);
+                    var id = urlParams.get('id');
+                    axios
+                        .get('http://localhost:3000/getProfile' + '?id=' + id)
+                        .then(response => {
+                            this.info = response.data[0];
+                            console.log(this.info);
+                        })
+                        .catch(error => console.log(error));
+                },
+      
+            },
+            computed: {
+                joinedAt() {
+                    const date = new Date(this.info.created_at);
+                    const year = date.getFullYear();
+                    const month = date.toLocaleString('default', { month: 'long' });
+                    return `${month} ${year}`;
+                },
+            },
+            created() {
+                this.getProfileData();
+            }
+    });
+        </script>
 </body>
 </html>
