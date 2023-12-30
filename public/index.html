@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Autosewa</title>
     <link rel="stylesheet" href="css/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
   <body>
     <header>
@@ -86,7 +88,7 @@
       </div>
     </header>
 
-    <main class="container">
+    <main id="app" class="container">
       <section class="mainHeader">
         <center><h1>Pick your auto-driver</h1></center>
       </section>
@@ -95,63 +97,38 @@
         <div class="search-container">
           <!-- <input type="text" placeholder="Search pick-up address" class="search-input"> -->
           <div class="search-function">
-            <select class="search-select">
-              <option value="all">Choose places in Hetauda</option>
-              <option value="Buddha Chowk">Buddha Chowk</option>
-              <option value="Mayurdhaap">Mayurdhaap</option>
-              <option value="Padampokhari">Padampokhari</option>
-              <option value="Chaughada">Chaughada</option>
-              <option value="Kamane">Kamane</option>
-              <option value="Dakshinkali Temple">Dakshinkali Temple</option>
-              <option value="Puspalal Park">Puspalal Park</option>
-              <option value="Manakamana Temple">Manakamana Temple</option>
-              <option value="Sadhana Bhumi Himalaya">
-                Sadhana Bhumi Himalaya
-              </option>
-            </select>
-            <button class="search-button">Search</button>
+            <h3>Select your nearest auto station</h3>
+            <center><select v-model="selectedStation" @change="sortStation" class="search-select"> 
+              <option value="all" selected>{{ selectAllStation }}</option>
+              <option v-for="station in stations" :value="station">{{ station }}</option>
+            </select></center>
+            <!-- <button v-on:click="sortStation" :disabled="selectedStation === null" class="search-button">Search</button> -->
           </div>
         </div>
       </section>
       <!-- Pagination section -->
-      <section class="pagination" style="margin:20px auto;width: 20%; font-size: 20px; height: 20px; display: flex;">
-           <button style="flex: 1;" onClick="changePage('Previous')">Previous</button>
-           <div style="flex: 1; text-align: center;" id="currentPage">1</div>
-           <button style="flex: 1;" onClick="changePage('Next')">Next</button>
+      <section v-if="selectedStation !== null" class="pagination">
+        <button class="previous btn" @click="prevPage" :disabled="page === 1">&laquo; Previous</button>
+        <div style="flex: 1; text-align: center;" id="currentPage">{{ pageValue }} of {{ totalPages }} pages</div>
+        <button class="next btn" @click="nextPage" :disabled="page === totalPages">Next &raquo;</button>
       </section>
 
-      <section class="driverContainer">
-        <div class="driverList">
-          <div class="driver">
-            <div class="driver-image">
-              <img src="images/1.png" alt="1" />
-            </div>
-            <div class="driver-info">
-              <h3>Driver Name</h3>
-              <p>View info</p>
-            </div>
-          </div>
-          <div class="driver">
-            <div class="driver-image">
-              <img src="images/1.png" alt="1" />
-            </div>
-            <div class="driver-info">
-              <h3>Driver Name</h3>
-              <p>View info</p>
-            </div>
-          </div>
+      <section v-if="loading">
+        <div class="loader"></div>
+      </section>
 
-          <div class="driver">
-            <div class="driver-image">
-              <img src="images/1.png" alt="1" />
+      <section v-else class="driverContainer">
+        <div class="driverList">
+            <div v-for="item in paginatedDrivers" class='driver'>
+              <div class='driver-image'>
+                <img v-bind:src="item.image" alt='dimg' />
+              </div>
+              <div class='driver-info'>
+                <h3>{{item.firstName}} {{item.lastName}}</h3>
+                <a :href="'localhost:3000?id=' + item.id"><p>View info</p></a>
+              </div>
             </div>
-            <div class="driver-info">
-              <h3>Driver Name</h3>
-              <p>View info</p>
-            </div>
-          </div>
         </div>
-          <!-- List of all 7 demo customers nicely arranged -->
       </section>
     </main>
 
@@ -222,6 +199,10 @@
       </section>
     </footer>
 
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script> !
+
     <script>
 
     //  let allRiders = [];
@@ -233,6 +214,89 @@
     //   }
 
     //   window.onload = loadData();
+
+    new Vue({
+        el: '#app',
+        data: {
+          allDrivers:[],  
+          sortedDrivers:[],
+          selectedStation: null,
+          stations:['Chauda', 'Karra', 'Padam Pokhari', 'Buddha chowk', 'Kamane'],
+          page: 1,
+          itemsPerPage: 15,
+          loading: false,
+        },
+        methods: {
+          fetchData() {
+            axios.get(`http://localhost:3000/getAllDrivers`)
+              .then(response => {
+                this.allDrivers = response.data;
+                this.page = 1;
+              })
+              
+              .catch(error => {
+                console.error('Error:', error);
+              });
+              
+          },
+          nextPage() {
+            if (this.page < this.totalPages) {
+              this.page++;
+            }
+          },
+          prevPage() {
+            if (this.page > 1) {
+              this.page--;
+            }
+          },
+          sortStation: function() {
+            this.page = 1;
+            this.loading = true;
+
+             // simulate async operation
+            setTimeout(() => {
+              this.loading = false;
+            }, 1000);
+
+            var station = this.selectedStation.toLowerCase(); 
+            if(station === "all"){ 
+              this.sortedDrivers = this.allDrivers;
+            } else {
+              this.sortedDrivers = this.allDrivers.filter(item => item.station === station);
+            }
+          },
+        },
+        computed: {
+          selectAllStation: function() {
+            return "All";
+          },
+          
+          paginatedDrivers() {
+            if (this.sortedDrivers.length === 0) {
+              this.page = 0;
+            } 
+            const start = (this.page - 1) * this.itemsPerPage;
+            const end = start + this.itemsPerPage;
+            if(this.selectedStation === null){
+              return this.allDrivers.slice(start, end);
+            } else{
+              return this.sortedDrivers.slice(start, end);
+            } 
+          },
+          totalPages() {
+            return Math.ceil(this.sortedDrivers.length / this.itemsPerPage);
+          },
+          pageValue() {
+            if(this.totalPages === 0){
+              this.page = 0;  
+            }
+            return this.page;
+          }
+        },
+        created() {
+          this.fetchData();
+        },
+    });
 
     
     
@@ -277,67 +341,67 @@
 
       // When the user clicks on the button, scroll to the top of the document
       function topFunction() {
-        document.body.scrollTop = 0;
-        document.documentElement.scrollTop = 0;
-      }
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+      } 
 
-      // Handling pagination
-      function changePage(action){
+      // // Handling pagination
+      // function changePage(action){
 
-        // Get the select element
-        var selectElement = document.querySelector('.search-select');
-        var searchData = selectElement.value || "all";
-        // retrieving the current page
-        var currentPageElem = document.getElementById("currentPage");
-        let page = parseInt(currentPageElem.innerHTML);
+      //   // Get the select element
+      //   var selectElement = document.querySelector('.search-select');
+      //   var searchData = selectElement.value || "all";
+      //   // retrieving the current page
+      //   var currentPageElem = document.getElementById("currentPage");
+      //   let page = parseInt(currentPageElem.innerHTML);
 
-        if(action === "Previous" && page === 1){
-            return;
-        }
+      //   if(action === "Previous" && page === 1){
+      //       return;
+      //   }
 
-        if(action === "Next"){
-           page = page + 1;
-        }
-        else if(action === "Previous"){
-          page = page - 1;
-        }
+      //   if(action === "Next"){
+      //      page = page + 1;
+      //   }
+      //   else if(action === "Previous"){
+      //     page = page - 1;
+      //   }
 
-        currentPageElem.innerHTML = page;
-        window.location.href = `http://localhost:3000/getDrivers?station=${searchData}&page=${page}`
-      }
+      //   currentPageElem.innerHTML = page;
+      //   window.location.href = `http://localhost:3000/getDrivers?station=${searchData}&page=${page}`
+      // }
 
-      //search the drivers based on location
-
-      
-
-      function searchDrivers() {
-        // Get the select element
-        var selectElement = document.querySelector('.search-select');
-        var searchData = selectElement.value;
-
-        fetch("http://localhost:3000/getDrivers?station=" + searchData)
-          .then(response => response.json())
-          .then(data => {
-            const driverList = document.querySelector(".driverList");
-            driverList.innerHTML = data.map(driver => `
-              <div class='driver'>
-                <div class='driver-image'>
-                  <img src="${driver.image}" alt='dimg' />
-                </div>
-                <div class='driver-info'>
-                  <h3>${driver.firstName} ${driver.lastName}</h3>
-                  <a href="localhost:3000?id=${driver.id}"><p>View info</p></a>
-                </div>
-              </div>
-            `).join('');
-          })
-          .catch(error => console.error('Error:', error));
-      }
+      // //search the drivers based on location
 
       
-      const search_button = document.querySelector(".search-button");
-      search_button.addEventListener("click", searchDrivers);
+
+      // function searchDrivers() {
+      //   // Get the select element
+      //   var selectElement = document.querySelector('.search-select');
+      //   var searchData = selectElement.value;
+
+      //   fetch("http://localhost:3000/getDrivers?station=" + searchData)
+      //     .then(response => response.json())
+      //     .then(data => {
+      //       const driverList = document.querySelector(".driverList");
+      //       driverList.innerHTML = data.map(driver => `
+      //         <div class='driver'>
+      //           <div class='driver-image'>
+      //             <img src="${driver.image}" alt='dimg' />
+      //           </div>
+      //           <div class='driver-info'>
+      //             <h3>${driver.firstName} ${driver.lastName}</h3>
+      //             <a href="localhost:3000?id=${driver.id}"><p>View info</p></a>
+      //           </div>
+      //         </div>
+      //       `).join('');
+      //     })
+      //     .catch(error => console.error('Error:', error));
+      // }
+
       
+      // const search_button = document.querySelector(".search-button");
+      // search_button.addEventListener("click", searchDrivers);
+
     </script>
   </body>
 </html>
