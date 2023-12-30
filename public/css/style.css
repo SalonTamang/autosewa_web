@@ -142,6 +142,7 @@ nav ul li a:hover {
     display: flex;
     justify-content: center;
     background-color: #378b29;
+    transition: all 0.3s ease-in-out;
     background-image: linear-gradient(315deg, #378b29 0%, #74d680 74%);
 }
 
@@ -174,6 +175,34 @@ nav ul li a:hover {
 
 .search-button:hover {
     background-color: #101010;
+}
+
+.search-button:disabled {
+    background-color: rgb(109, 109, 109);
+    color: white;
+}
+
+/* loader css */
+.loader {
+    margin: 30px auto;
+    border: 5px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 5px solid #3498db;
+    width: 30px;
+    height: 30px;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 .driverList {
@@ -215,6 +244,39 @@ nav ul li a:hover {
     height: 50px;
     border-radius: 50%;
     object-fit: cover;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0px;
+}
+
+#currentPage {
+    flex: 1;
+    text-align: center;
+    padding:20px 0;
+}
+
+.btn{
+    background-color: #04AA6D;
+    padding: 16px 20px;
+    border: 1px solid #ddd;
+    outline: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+}
+.previous {
+    flex: 1;
+    background-color: #f1f1f1;
+    color: black;
+}
+
+.next {
+    flex: 1;
+    background-color: #04AA6D;
+    color: white;
 }
 
 footer {
@@ -746,3 +808,5 @@ footer a{
     }
 
 }
+
+
