@@ -1,16 +1,26 @@
 const express = require('express');
-const mysql = require('mysql');
+const mysql = require('mysql2');
 var morgan = require("morgan");
 var path = require("path");
 const faker = require("faker");
 
 // Create a connection to the database
-const connection = mysql.createPool({
+const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: '',
     database: 'meroauto',
     port: 3306
+});
+
+// Check for connection to MySQL
+connection.connect((err) => {
+  if (err) {
+    console.error('Error connecting to MySQL:', err);
+    process.exit(1);
+  } else {
+    console.log('Connected to MySQL Database...');
+  }
 });
 
 // Create an Express application
@@ -76,15 +86,6 @@ app.get("/getAllDrivers", (req,res)=>{
 //register drivers based on their data
 app.post("/registerRider", (req,res)=> {
   
-  // let firstName = req.query.firstName;
-  // let lastName = req.query.lastName;
-  // let phoneNumber = req.query.phoneNumber;
-  // let password = req.query.password;
-  // let autoNumber = req.query.autoNumber;
-  // let image = req.query.image;
-  // let station = req.query.station;
-
-
   function getRandomStation() {
     const stations = ["padam pokhari", "chauda", "buddha chowk", "kamane", "karra"];
     const randomIndex = Math.floor(Math.random() * stations.length);
@@ -92,7 +93,7 @@ app.post("/registerRider", (req,res)=> {
   }
   
   // Generate and insert 100 unique records
-  for (let i = 0; i < 100; i++) {
+  for (let i = 0; i < 10; i++) {
     const firstName = faker.name.firstName();
     const lastName = faker.name.lastName();
     const phoneNumber = faker.phone.phoneNumber();
